@@ -1,6 +1,12 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
-from Const import WIN_WIDTH, WIN_HEIGHT
+from asyncio import timeout
+
+from pygame.font import Font
+from pygame.rect import Rect
+from pygame.surface import Surface
+
+from Const import WIN_WIDTH, WIN_HEIGHT, COLOR_WHITE, COLOR_REDBLOOD
 from code.Entity import Entity
 from code.EntityFactory import EntityFactory
 import pygame as pg
@@ -12,9 +18,13 @@ class Level:
         self.name = name
         self.entity_list: list[Entity] = []
         self.entity_list.extend(EntityFactory.get_entity('Level1Bg'))
+        self.timeout = 20000 #20 segundos
 
     def run(self):
+        pg.mixer_music.load(f'./asset/{self.name}.wav')
+        pg.mixer_music.play(-1)
         clock = pg.time.Clock()
+
         while True:
             clock.tick(60)
             for event in pg.event.get():
@@ -27,3 +37,14 @@ class Level:
                 self.window.blit(source=ent.surf, dest=ent.rect)
                 ent.move()
             pg.display.flip()
+
+            self.level_text(20, f'{self.name} - Timeout: {self.timeout / 1000:.1f}s', COLOR_REDBLOOD, (10, 5))
+            self.level_text(20, f'fps: {clock.get_fps():.0f}', COLOR_WHITE, (10, WIN_HEIGHT - 35))
+            self.level_text(20, f'entidades: {len(self.entity_list)}', COLOR_WHITE, (10, WIN_HEIGHT - 20))
+            pg.display.flip()
+
+    def level_text(self, text_size: int, text: str, text_color: tuple, text_pos: tuple):
+        text_font: Font = pg.font.SysFont(name="Lucida Sans Typewriter", size=text_size)
+        text_surf: Surface = text_font.render(text, True, text_color).convert_alpha()
+        text_rect: Rect = text_surf.get_rect(left=text_pos[0], top=text_pos[1])
+        self.window.blit(source=text_surf, dest=text_rect)

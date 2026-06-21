@@ -21,17 +21,17 @@ class Menu:
 
         while True:
             self.window.blit(source=self.surf, dest=self.rect)
-            self.menu_text(65, 'CORRA', (136, 8, 8),((WIN_WIDTH / 2), 190))
+            self.menu_text(60, 'Nun Scape', (136, 8, 8),((WIN_WIDTH / 2), 190))
 
             for i in range(len(MENU_OPTION)):
                 if i == menu_option:
-                    self.menu_text(20, MENU_OPTION[i], COLOR_REDBLOOD, ((WIN_WIDTH / 2), 400 + 35 * i))
+                    self.menu_text(20, MENU_OPTION[i], COLOR_REDBLOOD, ((WIN_WIDTH / 2), 300 + 35 * i))
                 else:
-                    self.menu_text(20, MENU_OPTION[i], COLOR_CINZA,((WIN_WIDTH / 2), 400 + 35 * i))
+                    self.menu_text(20, MENU_OPTION[i], COLOR_CINZA,((WIN_WIDTH / 2), 300 + 35 * i))
 
 
             for i in range(len(MENU_TIPS)):
-                self.menu_text(15, MENU_TIPS[i], COLOR_CINZA, (270, 650 + 40 * i))
+                self.menu_text(15, MENU_TIPS[i], COLOR_CINZA, (270, 480 + 40 * i))
 
             pg.display.flip()
 

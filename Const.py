@@ -6,11 +6,12 @@ COLOR_CINZA= (211, 211, 211)
 #E
 ENTITY_SPEED = {
     'Level1Bg0': 0,
-    'Level1Bg1': 4,
-    'Level1Bg2': 2,
-    'Level1Bg3': 3,
-    'Level1Bg4': 4,
-    'Level1Bg5': 5,
+    'Level1Bg1': 2,
+    'Level1Bg2': 1,
+    'Level1Bg3': 1,
+    'Level1Bg4': 1,
+    'Level1Bg5': 1,
+    'Level1Bg6': 3
     }
 
 # M
@@ -22,5 +23,5 @@ MENU_TIPS = ('Utilize ↑ e ↓ para selecionar opção',
              'E espaço para confirmar seleção     ')
 
 # W
-WIN_WIDTH = 1280
-WIN_HEIGHT = 720
+WIN_WIDTH = 960
+WIN_HEIGHT = 540
