@@ -5,13 +5,13 @@ from pygame.font import Font
 from pygame.rect import Rect
 from pygame.surface import Surface
 
-from Const import WIN_WIDTH, MENU_OPTION, COLOR_WHITE, MENU_TIPS, COLOR_CINZA, COLOR_REDBLOOD
+from Const import WIN_WIDTH, MENU_OPTION, COLOR_WHITE, MENU_TIPS, COLOR_CINZA, COLOR_REDBLOOD, LEVEL_TIPS
 
 
 class Menu:
     def __init__(self, window):
         self.window = window
-        self.surf = pg.image.load('./asset/fundo menu.jpg')
+        self.surf = pg.image.load('./asset/MENU1.png')
         self.rect = self.surf.get_rect(left=0, top=0)
 
     def run(self, ):
@@ -21,17 +21,20 @@ class Menu:
 
         while True:
             self.window.blit(source=self.surf, dest=self.rect)
-            self.menu_text(60, 'Nun Scape', (136, 8, 8),((WIN_WIDTH / 2), 190))
+            self.menu_text(40, 'Nun Scape', (136, 8, 8),(250, 200))
 
             for i in range(len(MENU_OPTION)):
                 if i == menu_option:
-                    self.menu_text(20, MENU_OPTION[i], COLOR_REDBLOOD, ((WIN_WIDTH / 2), 300 + 35 * i))
+                    self.menu_text(20, MENU_OPTION[i], COLOR_REDBLOOD, (250, 270 + 35 * i))
                 else:
-                    self.menu_text(20, MENU_OPTION[i], COLOR_CINZA,((WIN_WIDTH / 2), 300 + 35 * i))
+                    self.menu_text(20, MENU_OPTION[i], COLOR_CINZA,(250, 270 + 35 * i))
 
 
             for i in range(len(MENU_TIPS)):
-                self.menu_text(15, MENU_TIPS[i], COLOR_CINZA, (270, 480 + 40 * i))
+                self.menu_text(18, MENU_TIPS[i], COLOR_CINZA, (730, 170+ 35 * i))
+
+            for i in range(len(LEVEL_TIPS)):
+                self.menu_text(18, LEVEL_TIPS[i], COLOR_CINZA, (730, 300 + 35 * i))
 
             pg.display.flip()
 
@@ -42,13 +45,13 @@ class Menu:
 
                 #SELEÇÃO DE MENU------------------------------------------------------------------------------------
                 if event.type == pg.KEYDOWN:
-                    if event.key == pg.K_DOWN:
+                    if event.key == pg.K_s:
                         if menu_option < len(MENU_OPTION) - 1:
                             menu_option += 1
                         else:
                             menu_option = 0
 
-                    if event.key == pg.K_UP:
+                    if event.key == pg.K_w:
                         if menu_option > 0:
                             menu_option -= 1
                         else:

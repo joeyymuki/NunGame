@@ -1,3 +1,5 @@
+import pygame as pg
+
 # C
 COLOR_REDBLOOD = (136, 8, 8)
 COLOR_WHITE = (255, 255, 255)
@@ -11,16 +13,32 @@ ENTITY_SPEED = {
     'Level1Bg3': 1,
     'Level1Bg4': 1,
     'Level1Bg5': 1,
-    'Level1Bg6': 3
+    'Level1Bg6': 3,
+    'nun': 1,
+    'Enemy1': 3,
+    'Enemy2': 3,
+    'Enemy3': 2,
+    'Enemy4': 4
     }
+
+EVENT_ENEMY = pg.USEREVENT + 1
 
 # M
 MENU_OPTION = ('Novo Jogo',
                'Créditos',
                'Sair')
 
-MENU_TIPS = ('Utilize ↑ e ↓ para selecionar opção',
-             'E espaço para confirmar seleção     ')
+MENU_TIPS = ('Controle do Menu:',
+             '"W" e "S" para selecionar',
+             '"ESPAÇO" para confirmar')
+
+LEVEL_TIPS = ('Controles do jogo:',
+              '"W" para PULAR',
+              '"A" e "D" para ANDAR',)
+
+
+# S
+SPAWN_TIME = 2000
 
 # W
 WIN_WIDTH = 960

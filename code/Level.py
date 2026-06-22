@@ -1,12 +1,13 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
+import sys
 from asyncio import timeout
-
+import random
 from pygame.font import Font
 from pygame.rect import Rect
 from pygame.surface import Surface
 
-from Const import WIN_WIDTH, WIN_HEIGHT, COLOR_WHITE, COLOR_REDBLOOD
+from Const import WIN_WIDTH, WIN_HEIGHT, COLOR_WHITE, COLOR_REDBLOOD, EVENT_ENEMY, SPAWN_TIME
 from code.Entity import Entity
 from code.EntityFactory import EntityFactory
 import pygame as pg
@@ -14,11 +15,13 @@ import pygame as pg
 
 class Level:
     def __init__(self, window, name):
+        self.timeout = 20000  # 20 segundos
         self.window = window
         self.name = name
         self.entity_list: list[Entity] = []
         self.entity_list.extend(EntityFactory.get_entity('Level1Bg'))
-        self.timeout = 20000 #20 segundos
+        self.entity_list.append(EntityFactory.get_entity('nun'))
+        pg.time.set_timer(EVENT_ENEMY, SPAWN_TIME)
 
     def run(self):
         pg.mixer_music.load(f'./asset/{self.name}.wav')
@@ -27,21 +30,35 @@ class Level:
 
         while True:
             clock.tick(60)
+            self.window.fill((0, 0, 0))
             for event in pg.event.get():
                 if event.type == pg.QUIT:
                     pg.quit()
-                    return
+                    sys.exit()
 
+                if event.type == EVENT_ENEMY:
+                    choice = random.choice(('Enemy1', 'Enemy2', 'Enemy3', 'Enemy4'))
+                    self.entity_list.append(EntityFactory.get_entity(choice))
+
+            entidades_vivas = []
 
             for ent in self.entity_list:
                 self.window.blit(source=ent.surf, dest=ent.rect)
                 ent.move()
-            pg.display.flip()
+
+                if 'Enemy' in ent.name and ent.rect.right <= 0:
+                    continue
+
+                entidades_vivas.append(ent)
+
+            self.entity_list = entidades_vivas
 
             self.level_text(20, f'{self.name} - Timeout: {self.timeout / 1000:.1f}s', COLOR_REDBLOOD, (10, 5))
             self.level_text(20, f'fps: {clock.get_fps():.0f}', COLOR_WHITE, (10, WIN_HEIGHT - 35))
             self.level_text(20, f'entidades: {len(self.entity_list)}', COLOR_WHITE, (10, WIN_HEIGHT - 20))
+
             pg.display.flip()
+
 
     def level_text(self, text_size: int, text: str, text_color: tuple, text_pos: tuple):
         text_font: Font = pg.font.SysFont(name="Lucida Sans Typewriter", size=text_size)
