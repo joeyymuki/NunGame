@@ -22,16 +22,52 @@ class EntityFactory:
                 return list_bg
 
             case 'nun':
-                return Player('nun', (10, 395))
+                return Player('nun', (10, 300))
 
             case 'Enemy1':
-                return Enemy('Enemy1', ((WIN_WIDTH + 10), 390))
+                return Enemy('Enemy1', ((WIN_WIDTH + 10), 236))
 
             case 'Enemy2':
-                return Enemy('Enemy2', ((WIN_WIDTH + 10), 400))
+                return Enemy('Enemy2', ((WIN_WIDTH + 10), 236))
 
             case 'Enemy3':
-                return Enemy('Enemy3', (WIN_WIDTH + 10, random.randint(280, 395)))
+                return Enemy('Enemy3', ((WIN_WIDTH + 10), 236))
 
             case 'Enemy4':
-                return Enemy('Enemy4', (WIN_WIDTH + 10, random.randint(280, 395)))
+                return Enemy('Enemy4', ((WIN_WIDTH + 10), 236))
+
+            case 'Enemy5':
+                return Enemy('Enemy5', (WIN_WIDTH + 10, random.randint(180, 236)))
+
+            case 'Enemy6':
+                return Enemy('Enemy6', (WIN_WIDTH + 10, random.randint(180, 236)))
+
+            case 'Enemy7':
+                return Enemy('Enemy7', (WIN_WIDTH + 10, random.randint(180, 236)))
+
+            case 'Enemy8':
+                return Enemy('Enemy8', (WIN_WIDTH + 10, random.randint(180, 236)))
+
+            case 'Enemy9':
+                return Enemy('Enemy9', (WIN_WIDTH + 10, random.randint(180, 236)))
+
+            case 'Enemy10':
+                return Enemy('Enemy10', (WIN_WIDTH + 10, random.randint(180, 236)))
+
+            case 'Enemy11':
+                return Enemy('Enemy11', ((WIN_WIDTH + 10), 236))
+
+            case 'Enemy12':
+                return Enemy('Enemy12', ((WIN_WIDTH + 10), 236))
+
+            case 'Enemy13':
+                return Enemy('Enemy3', ((WIN_WIDTH + 10), 236))
+
+            case 'Enemy14':
+                return Enemy('Enemy14', ((WIN_WIDTH + 10), 236))
+
+            case 'Enemy15':
+                return Enemy('Enemy15', ((WIN_WIDTH + 10), 236))
+
+            case 'Enemy16':
+                return Enemy('Enemy16', ((WIN_WIDTH + 10), 236))

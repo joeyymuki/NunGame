@@ -29,7 +29,7 @@ class Player(Entity):
         self.speed_y += self.gravity
         self.rect.y += self.speed_y
 
-        linha_do_chao = 450
+        linha_do_chao = 300
 
         if self.rect.bottom >= linha_do_chao:
             self.rect.bottom = linha_do_chao

@@ -13,12 +13,24 @@ ENTITY_SPEED = {
     'Level1Bg3': 1,
     'Level1Bg4': 1,
     'Level1Bg5': 1,
-    'Level1Bg6': 3,
+    'Level1Bg6': 2,
     'nun': 1,
-    'Enemy1': 3,
-    'Enemy2': 3,
+    'Enemy1': 2,
+    'Enemy2': 2,
     'Enemy3': 2,
-    'Enemy4': 4
+    'Enemy4': 2,
+    'Enemy5': 4,
+    'Enemy6': 4,
+    'Enemy7': 4,
+    'Enemy8': 4,
+    'Enemy9': 4,
+    'Enemy10': 5,
+    'Enemy11': 2,
+    'Enemy12': 2,
+    'Enemy13': 2,
+    'Enemy14': 2,
+    'Enemy15': 2,
+    'Enemy16': 2
     }
 
 EVENT_ENEMY = pg.USEREVENT + 1
@@ -41,5 +53,5 @@ LEVEL_TIPS = ('Controles do jogo:',
 SPAWN_TIME = 2000
 
 # W
-WIN_WIDTH = 960
-WIN_HEIGHT = 540
+WIN_WIDTH = 640
+WIN_HEIGHT = 360
