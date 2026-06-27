@@ -6,6 +6,7 @@ import random
 from pygame.font import Font
 from pygame.rect import Rect
 from pygame.surface import Surface
+from code.EntityMediator import EntityMediator
 
 from Const import WIN_WIDTH, WIN_HEIGHT, COLOR_WHITE, COLOR_REDBLOOD, EVENT_ENEMY, SPAWN_TIME
 from code.Entity import Entity
@@ -40,24 +41,21 @@ class Level:
                     choice = random.choice(('Enemy1', 'Enemy2', 'Enemy3', 'Enemy4','Enemy5',"Enemy6","Enemy7",'Enemy8',"Enemy9","Enemy10","Enemy11","Enemy12","Enemy13","Enemy14","Enemy15","Enemy16",))
                     self.entity_list.append(EntityFactory.get_entity(choice))
 
-            entidades_vivas = []
-
             for ent in self.entity_list:
                 self.window.blit(source=ent.surf, dest=ent.rect)
                 ent.move()
 
-                if 'Enemy' in ent.name and ent.rect.right <= 0:
-                    continue
-
-                entidades_vivas.append(ent)
-
-            self.entity_list = entidades_vivas
 
             self.level_text(20, f'{self.name} - Timeout: {self.timeout / 1000:.1f}s', COLOR_REDBLOOD, (10, 5))
             self.level_text(20, f'fps: {clock.get_fps():.0f}', COLOR_WHITE, (10, WIN_HEIGHT - 35))
             self.level_text(20, f'entidades: {len(self.entity_list)}', COLOR_WHITE, (10, WIN_HEIGHT - 20))
 
             pg.display.flip()
+
+
+            #COLLISIONS
+            EntityMediator.verify_collision(entity_list=self.entity_list)
+            EntityMediator.verify_health(entity_list=self.entity_list)
 
 
     def level_text(self, text_size: int, text: str, text_color: tuple, text_pos: tuple):
