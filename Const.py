@@ -1,9 +1,12 @@
 import pygame as pg
 
 # C
-COLOR_REDBLOOD = (136, 8, 8)
-COLOR_WHITE = (255, 255, 255)
-COLOR_CINZA= (211, 211, 211)
+C_REDBLOOD = (136, 8, 8)
+C_WHITE = (255, 255, 255)
+C_CINZA= (211, 211, 211)
+C_GREEN= (0,128,0)
+C_CYAN= (0,128,128)
+
 
 #E
 ENTITY_SPEED = {
@@ -58,6 +61,33 @@ ENTITY_HEALTH = {
     'Enemy14': 2,
     'Enemy15': 2,
     'Enemy16': 2
+}
+
+ENTITY_DAMAGE = {
+    'Level1Bg0': 0,
+    'Level1Bg1': 0,
+    'Level1Bg2': 0,
+    'Level1Bg3': 0,
+    'Level1Bg4': 0,
+    'Level1Bg5': 0,
+    'Level1Bg6': 0,
+    'nun': 2,
+    'Enemy1': 1,
+    'Enemy2': 1,
+    'Enemy3': 1,
+    'Enemy4': 1,
+    'Enemy5': 1,
+    'Enemy6': 1,
+    'Enemy7': 1,
+    'Enemy8': 1,
+    'Enemy9': 1,
+    'Enemy10': 1,
+    'Enemy11': 1,
+    'Enemy12': 1,
+    'Enemy13': 1,
+    'Enemy14': 1,
+    'Enemy15': 1,
+    'Enemy16': 1
 }
 
 EVENT_ENEMY = pg.USEREVENT + 1

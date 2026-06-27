@@ -5,7 +5,7 @@ from pygame.font import Font
 from pygame.rect import Rect
 from pygame.surface import Surface
 
-from Const import WIN_WIDTH, MENU_OPTION, COLOR_WHITE, MENU_TIPS, COLOR_CINZA, COLOR_REDBLOOD, LEVEL_TIPS
+from Const import WIN_WIDTH, MENU_OPTION, C_WHITE, MENU_TIPS, C_CINZA, C_REDBLOOD, LEVEL_TIPS
 
 
 class Menu:
@@ -25,16 +25,16 @@ class Menu:
 
             for i in range(len(MENU_OPTION)):
                 if i == menu_option:
-                    self.menu_text(20, MENU_OPTION[i], COLOR_REDBLOOD, (170, 170 + 35 * i))
+                    self.menu_text(20, MENU_OPTION[i], C_REDBLOOD, (170, 170 + 35 * i))
                 else:
-                    self.menu_text(20, MENU_OPTION[i], COLOR_CINZA,(170, 170 + 35 * i))
+                    self.menu_text(20, MENU_OPTION[i], C_CINZA, (170, 170 + 35 * i))
 
 
             for i in range(len(MENU_TIPS)):
-                self.menu_text(13, MENU_TIPS[i], COLOR_CINZA, (480, 90 + 30 * i))
+                self.menu_text(13, MENU_TIPS[i], C_CINZA, (480, 90 + 30 * i))
 
             for i in range(len(LEVEL_TIPS)):
-                self.menu_text(13, LEVEL_TIPS[i], COLOR_CINZA, (480, 190+ 30 * i))
+                self.menu_text(13, LEVEL_TIPS[i], C_CINZA, (480, 190 + 30 * i))
 
             pg.display.flip()
 

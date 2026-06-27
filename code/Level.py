@@ -8,7 +8,7 @@ from pygame.rect import Rect
 from pygame.surface import Surface
 from code.EntityMediator import EntityMediator
 
-from Const import WIN_WIDTH, WIN_HEIGHT, COLOR_WHITE, COLOR_REDBLOOD, EVENT_ENEMY, SPAWN_TIME
+from Const import WIN_WIDTH, WIN_HEIGHT, C_WHITE, C_REDBLOOD, EVENT_ENEMY, SPAWN_TIME, C_GREEN
 from code.Entity import Entity
 from code.EntityFactory import EntityFactory
 import pygame as pg
@@ -16,7 +16,7 @@ import pygame as pg
 
 class Level:
     def __init__(self, window, name):
-        self.timeout = 20000  # 20 segundos
+        self.timeout = 15000  # 15 segundos
         self.window = window
         self.name = name
         self.entity_list: list[Entity] = []
@@ -38,17 +38,22 @@ class Level:
                     sys.exit()
 
                 if event.type == EVENT_ENEMY:
-                    choice = random.choice(('Enemy1', 'Enemy2', 'Enemy3', 'Enemy4','Enemy5',"Enemy6","Enemy7",'Enemy8',"Enemy9","Enemy10","Enemy11","Enemy12","Enemy13","Enemy14","Enemy15","Enemy16",))
+                    choice = random.choice(('Enemy1', 'Enemy2', 'Enemy3', 'Enemy4','Enemy5',"Enemy6","Enemy7",
+                                            'Enemy8',"Enemy9","Enemy10","Enemy11","Enemy12","Enemy13","Enemy14",
+                                            "Enemy15","Enemy16",))
                     self.entity_list.append(EntityFactory.get_entity(choice))
+
 
             for ent in self.entity_list:
                 self.window.blit(source=ent.surf, dest=ent.rect)
                 ent.move()
+                if ent.name == 'nun':
+                    self.level_text(20, f'Player - HEALTH: {ent.health}', C_GREEN, (10, 22))
 
 
-            self.level_text(20, f'{self.name} - Timeout: {self.timeout / 1000:.1f}s', COLOR_REDBLOOD, (10, 5))
-            self.level_text(20, f'fps: {clock.get_fps():.0f}', COLOR_WHITE, (10, WIN_HEIGHT - 35))
-            self.level_text(20, f'entidades: {len(self.entity_list)}', COLOR_WHITE, (10, WIN_HEIGHT - 20))
+            self.level_text(20, f'{self.name} - Timeout: {self.timeout / 1000:.1f}s', C_REDBLOOD, (10, 5))
+            self.level_text(20, f'fps: {clock.get_fps():.0f}', C_WHITE, (10, WIN_HEIGHT - 35))
+            self.level_text(20, f'entidades: {len(self.entity_list)}', C_WHITE, (10, WIN_HEIGHT - 20))
 
             pg.display.flip()
 
