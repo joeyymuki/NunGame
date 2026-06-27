@@ -8,21 +8,25 @@ from pygame.rect import Rect
 from pygame.surface import Surface
 from code.EntityMediator import EntityMediator
 
-from Const import WIN_WIDTH, WIN_HEIGHT, C_WHITE, C_REDBLOOD, EVENT_ENEMY, SPAWN_TIME, C_GREEN
+from Const import WIN_HEIGHT, C_WHITE, C_REDBLOOD, EVENT_ENEMY, SPAWN_TIME, C_GREEN, EVENT_TIMEOUT, TIMEOUT_STEP, \
+    TIMEOUT_LEVEL
 from code.Entity import Entity
 from code.EntityFactory import EntityFactory
 import pygame as pg
 
+from code.Player import Player
+
 
 class Level:
     def __init__(self, window, name):
-        self.timeout = 15000  # 15 segundos
+        self.timeout = TIMEOUT_LEVEL
         self.window = window
         self.name = name
         self.entity_list: list[Entity] = []
-        self.entity_list.extend(EntityFactory.get_entity('Level1Bg'))
+        self.entity_list.extend(EntityFactory.get_entity(self.name + 'Bg'))
         self.entity_list.append(EntityFactory.get_entity('nun'))
         pg.time.set_timer(EVENT_ENEMY, SPAWN_TIME)
+        pg.time.set_timer(EVENT_TIMEOUT, TIMEOUT_STEP)
 
     def run(self):
         pg.mixer_music.load(f'./asset/{self.name}.wav')
@@ -43,6 +47,19 @@ class Level:
                                             "Enemy15","Enemy16",))
                     self.entity_list.append(EntityFactory.get_entity(choice))
 
+                if event.type == EVENT_TIMEOUT:
+                    self.timeout -= TIMEOUT_STEP
+                    if self.timeout == 0:
+                        return True
+
+                found_player = False
+
+                for ent in self.entity_list:
+                    if isinstance(ent, Player):
+                        found_player = True
+
+                if not found_player:
+                    return False
 
             for ent in self.entity_list:
                 self.window.blit(source=ent.surf, dest=ent.rect)

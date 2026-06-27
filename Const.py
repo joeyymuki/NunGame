@@ -5,8 +5,22 @@ C_REDBLOOD = (136, 8, 8)
 C_WHITE = (255, 255, 255)
 C_CINZA= (211, 211, 211)
 C_GREEN= (0,128,0)
-C_CYAN= (0,128,128)
+C_BLACK = (0, 0, 0)
 
+CREDITS_TEXT4 = ('Svetlana Kushnariova (Cabbit)',
+                '& Jordan Irwin (AntumDeluge).',
+                'Original sprite by Charles Gabriel',
+                'commissioned by:',
+                '(https://opengameart.org/).')
+
+CREDITS_TEXT3 = ('Art by: PWL',
+                 '(https://opengameart.org/users/pwl)')
+
+CREDITS_TEXT2 = ('Trulio',
+                 '(https://opengameart.org/users/trulio)')
+
+CREDITS_TEXT1 = ('Coghezzi:',
+                 '(https://freesound.org/people/Coghezzi/)')
 
 #E
 ENTITY_SPEED = {
@@ -17,6 +31,13 @@ ENTITY_SPEED = {
     'Level1Bg4': 1,
     'Level1Bg5': 1,
     'Level1Bg6': 2,
+    'Level2Bg0': 0,
+    'Level2Bg1': 2,
+    'Level2Bg2': 1,
+    'Level2Bg3': 1,
+    'Level2Bg4': 1,
+    'Level2Bg5': 1,
+    'Level2Bg6': 2,
     'nun': 1,
     'Enemy1': 2,
     'Enemy2': 2,
@@ -44,6 +65,13 @@ ENTITY_HEALTH = {
     'Level1Bg4': 999,
     'Level1Bg5': 999,
     'Level1Bg6': 999,
+    'Level2Bg0': 999,
+    'Level2Bg1': 999,
+    'Level2Bg2': 999,
+    'Level2Bg3': 999,
+    'Level2Bg4': 999,
+    'Level2Bg5': 999,
+    'Level2Bg6': 999,
     'nun': 3,
     'Enemy1': 2,
     'Enemy2': 2,
@@ -71,6 +99,13 @@ ENTITY_DAMAGE = {
     'Level1Bg4': 0,
     'Level1Bg5': 0,
     'Level1Bg6': 0,
+    'Level2Bg0': 0,
+    'Level2Bg1': 0,
+    'Level2Bg2': 0,
+    'Level2Bg3': 0,
+    'Level2Bg4': 0,
+    'Level2Bg5': 0,
+    'Level2Bg6': 0,
     'nun': 2,
     'Enemy1': 1,
     'Enemy2': 1,
@@ -91,6 +126,7 @@ ENTITY_DAMAGE = {
 }
 
 EVENT_ENEMY = pg.USEREVENT + 1
+EVENT_TIMEOUT = pg.USEREVENT + 2
 
 # M
 MENU_OPTION = ('Novo Jogo',
@@ -108,6 +144,10 @@ LEVEL_TIPS = ('Controles do jogo:',
 
 # S
 SPAWN_TIME = 2000
+
+#T
+TIMEOUT_STEP = 100 #100 ms
+TIMEOUT_LEVEL = 20000 #20 seg
 
 # W
 WIN_WIDTH = 640
