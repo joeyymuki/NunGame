@@ -67,6 +67,16 @@ class Level:
                 if ent.name == 'nun':
                     self.level_text(20, f'Player - HEALTH: {ent.health}', C_GREEN, (10, 22))
 
+            player_vivo = False
+            for ent in self.entity_list:
+                if ent.name == 'nun':
+                    player_vivo = True
+                    break
+
+            if not player_vivo:
+                pg.mixer_music.stop()
+                return False
+
 
             self.level_text(20, f'{self.name} - Timeout: {self.timeout / 1000:.1f}s', C_REDBLOOD, (10, 5))
             self.level_text(20, f'fps: {clock.get_fps():.0f}', C_WHITE, (10, WIN_HEIGHT - 35))

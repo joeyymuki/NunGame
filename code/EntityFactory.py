@@ -32,16 +32,16 @@ class EntityFactory:
                 return Player('nun', (10, 300))
 
             case 'Enemy1':
-                return Enemy('Enemy1', ((WIN_WIDTH + 10), 236))
+                return Enemy('Enemy1', ((WIN_WIDTH + 10), 240))
 
             case 'Enemy2':
-                return Enemy('Enemy2', ((WIN_WIDTH + 10), 236))
+                return Enemy('Enemy2', ((WIN_WIDTH + 10), 240))
 
             case 'Enemy3':
-                return Enemy('Enemy3', ((WIN_WIDTH + 10), 236))
+                return Enemy('Enemy3', ((WIN_WIDTH + 10), 240))
 
             case 'Enemy4':
-                return Enemy('Enemy4', ((WIN_WIDTH + 10), 236))
+                return Enemy('Enemy4', ((WIN_WIDTH + 10), 240))
 
             case 'Enemy5':
                 return Enemy('Enemy5', (WIN_WIDTH + 10, random.randint(180, 236)))
@@ -62,19 +62,19 @@ class EntityFactory:
                 return Enemy('Enemy10', (WIN_WIDTH + 10, random.randint(180, 236)))
 
             case 'Enemy11':
-                return Enemy('Enemy11', ((WIN_WIDTH + 10), 236))
+                return Enemy('Enemy11', ((WIN_WIDTH + 10), 240))
 
             case 'Enemy12':
-                return Enemy('Enemy12', ((WIN_WIDTH + 10), 236))
+                return Enemy('Enemy12', ((WIN_WIDTH + 10), 240))
 
             case 'Enemy13':
-                return Enemy('Enemy3', ((WIN_WIDTH + 10), 236))
+                return Enemy('Enemy3', ((WIN_WIDTH + 10), 240))
 
             case 'Enemy14':
-                return Enemy('Enemy14', ((WIN_WIDTH + 10), 236))
+                return Enemy('Enemy14', ((WIN_WIDTH + 10), 240))
 
             case 'Enemy15':
-                return Enemy('Enemy15', ((WIN_WIDTH + 10), 236))
+                return Enemy('Enemy15', ((WIN_WIDTH + 10), 240))
 
             case 'Enemy16':
-                return Enemy('Enemy16', ((WIN_WIDTH + 10), 236))
+                return Enemy('Enemy16', ((WIN_WIDTH + 10), 240))

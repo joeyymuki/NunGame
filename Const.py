@@ -143,7 +143,7 @@ LEVEL_TIPS = ('Controles do jogo:',
 
 
 # S
-SPAWN_TIME = 2000
+SPAWN_TIME = 1500
 
 #T
 TIMEOUT_STEP = 100 #100 ms
