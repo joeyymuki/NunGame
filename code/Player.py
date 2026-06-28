@@ -19,7 +19,7 @@ class Player(Entity):
 
         if pressed_key[pg.K_a] and self.rect.left > 0:
             self.rect.x -= 4
-        if pressed_key[pg.K_d] and self.rect.right < 960:
+        if pressed_key[pg.K_d] and self.rect.right < 640:
             self.rect.x += 3
 
         if pressed_key[pg.K_w] and self.on_ground:
