@@ -1,4 +1,4 @@
-![ult text](https://github.com/joeyymuki/NunGame/blob/master/asset/nun.png) #NUN SCAPE ![ult text](https://github.com/joeyymuki/NunGame/blob/master/asset/nun.png)
+![ult text](https://github.com/joeyymuki/NunGame/blob/master/asset/nun.png) NUN SCAPE ![ult text](https://github.com/joeyymuki/NunGame/blob/master/asset/nun.png)
 ===============
 
 
